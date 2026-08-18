@@ -46,15 +46,15 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
         </div>
 
         {/* 3D Flippable Digital Identity Smart Card */}
-        <div className="perspective-1000 w-full max-w-md mx-auto">
+        <div className="perspective-1000 w-full max-w-md mx-auto select-none">
           <div
             onClick={() => setIsCardFlipped(!isCardFlipped)}
-            className={`relative w-full h-[240px] sm:h-[250px] transition-transform duration-700 transform-style-3d cursor-pointer ${
-              isCardFlipped ? 'rotate-y-180' : ''
+            className={`card-flip-inner h-[250px] cursor-pointer ${
+              isCardFlipped ? 'is-flipped' : ''
             }`}
           >
             {/* Front of Card */}
-            <div className="absolute inset-0 w-full h-full bg-[#273044] rounded-[24px] p-5 sm:p-6 text-white shadow-2xl flex flex-col justify-between backface-hidden border border-slate-700/60 overflow-hidden">
+            <div className="card-face-front bg-[#273044] rounded-[24px] p-5 sm:p-6 text-white shadow-2xl flex flex-col justify-between border border-slate-700/60 overflow-hidden">
               <div className="absolute top-0 right-0 w-60 h-60 bg-[#1550d3] rounded-full mix-blend-screen filter blur-[75px] opacity-35 pointer-events-none" />
               <div className="absolute bottom-0 left-0 w-44 h-44 bg-[#7857f8] rounded-full mix-blend-screen filter blur-[60px] opacity-35 pointer-events-none" />
 
@@ -82,7 +82,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
 
                 <div className="flex flex-col items-end">
                   <span className="text-[9px] font-bold tracking-widest text-white/60 uppercase">
-                    SCHOOL NEXUS
+                    {user.role === 'teacher' ? 'FACULTY PASS' : user.role === 'admin' ? 'SYS ADMIN' : user.role === 'parent' ? 'GUARDIAN' : 'STUDENT PASS'}
                   </span>
                   <span className="px-2 py-0.5 mt-1 rounded bg-white/20 text-[10px] font-bold tracking-wider">
                     LV.{user.level}
@@ -94,7 +94,7 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
               <div className="relative z-10 bg-black/25 rounded-xl p-3 border border-white/10 flex justify-between items-center backdrop-blur-md">
                 <div>
                   <div className="text-[10px] text-white/60 uppercase tracking-wider">
-                    Major / Department
+                    {user.role === 'teacher' ? 'Department / Role' : user.role === 'admin' ? 'Infrastructure' : user.role === 'parent' ? 'Relationship' : 'Major / Department'}
                   </div>
                   <div className="text-[13px] font-bold text-white truncate max-w-[200px]">
                     {user.major}
@@ -102,18 +102,20 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
                 </div>
                 <div className="text-right">
                   <div className="text-[10px] text-white/60 uppercase tracking-wider">
-                    Streak
+                    Active Days
                   </div>
                   <div className="text-[13px] font-bold text-amber-300 flex items-center gap-1 justify-end">
-                    <span>🔥</span> {user.streakDays} Days
+                    <span className="material-symbols-outlined text-[15px] text-amber-400">local_fire_department</span>
+                    <span>{user.streakDays} Days</span>
                   </div>
                 </div>
               </div>
 
               {/* Bottom Card Controls */}
               <div className="relative z-10 flex justify-between items-center">
-                <div className="text-[11px] text-white/70">
-                  แตะเพื่อพลิกดูบาร์โค้ด & ชิป NFC
+                <div className="text-[11px] text-white/70 flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[14px] text-cyan-300">touch_app</span>
+                  <span>แตะเพื่อพลิกดูบาร์โค้ด & ชิป NFC</span>
                 </div>
                 <div className="flex gap-2">
                   <span className="material-symbols-outlined text-[20px] text-white/80">
@@ -126,39 +128,42 @@ export const ProfileView: React.FC<ProfileViewProps> = ({
               </div>
             </div>
 
-            {/* Back of Card */}
-            <div className="absolute inset-0 w-full h-full bg-[#1e2538] rounded-[24px] p-5 sm:p-6 text-white shadow-2xl flex flex-col justify-between rotate-y-180 backface-hidden border border-slate-700/60 overflow-hidden">
+            {/* Back of Card (100% Right Side Up, No Inversion) */}
+            <div className="card-face-back bg-[#1e2538] rounded-[24px] p-5 sm:p-6 text-white shadow-2xl flex flex-col justify-between border border-slate-700/60 overflow-hidden">
               <div className="flex justify-between items-center border-b border-white/10 pb-2">
-                <span className="text-[11px] font-bold tracking-wider text-white/70 uppercase">
-                  Digital School Credential
-                </span>
-                <span className="text-[11px] text-[#20C997] font-semibold flex items-center gap-1">
-                  <span className="w-2 h-2 rounded-full bg-[#20C997] inline-block"></span>
+                <div className="flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[16px] text-cyan-400">verified</span>
+                  <span className="text-[11px] font-bold tracking-wider text-white/80 uppercase">
+                    {user.role === 'teacher' ? 'Faculty Credential' : user.role === 'admin' ? 'Admin Credential' : user.role === 'parent' ? 'Guardian Credential' : 'Student Credential'}
+                  </span>
+                </div>
+                <span className="text-[11px] text-[#20C997] font-semibold flex items-center gap-1 bg-[#20C997]/15 px-2 py-0.5 rounded border border-[#20C997]/30">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#20C997] animate-pulse"></span>
                   Active Card
                 </span>
               </div>
 
               {/* Simulated Barcode */}
-              <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center text-black">
+              <div className="bg-white rounded-xl p-3 flex flex-col items-center justify-center text-black shadow-inner">
                 <div className="h-10 w-full flex items-center justify-center gap-1">
                   {[4, 2, 6, 1, 8, 3, 5, 2, 7, 3, 5, 2, 8, 4, 2, 6, 1, 9, 3, 2, 7, 4, 5, 3].map(
                     (w, i) => (
                       <div
                         key={i}
                         className="bg-black h-full rounded-xs"
-                        style={{ width: `${w * 1.5}px` }}
+                        style={{ width: `${w * 1.4}px` }}
                       />
                     )
                   )}
                 </div>
-                <span className="font-mono text-[12px] font-bold mt-1 tracking-widest">
+                <span className="font-mono text-[12px] font-bold mt-1 tracking-widest text-[#121b2e]">
                   *{user.studentId}*
                 </span>
               </div>
 
-              <div className="flex justify-between text-[11px] text-white/70 pt-1">
-                <div>RFID: {user.rfidCard}</div>
-                <div>EXP: 08/2028</div>
+              <div className="flex justify-between text-[11px] text-white/75 pt-1">
+                <div>RFID: <span className="font-mono text-white/90">{user.rfidCard}</span></div>
+                <div>EXP: <span className="text-white/90">08/2028</span></div>
               </div>
             </div>
           </div>

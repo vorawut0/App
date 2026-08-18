@@ -103,10 +103,10 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
 
         {/* Header Text */}
         <div className="text-center mb-6">
-          <h1 className="text-[28px] sm:text-[32px] font-bold text-[#121b2e] leading-tight mb-1.5 tracking-tight flex items-center justify-center gap-2">
-            Welcome back <span>👋</span>
+          <h1 className="text-[28px] sm:text-[32px] font-bold text-[#121b2e] leading-tight mb-1.5 tracking-tight">
+            ยินดีต้อนรับเข้าสู่ระบบ
           </h1>
-          <p className="text-[#434654] text-[15px]">เข้าสู่ระบบโรงเรียนอัจฉริยะ</p>
+          <p className="text-[#434654] text-[15px]">ระบบบริหารจัดการโรงเรียนอัจฉริยะ SCHOOL NEXUS</p>
         </div>
 
         {/* Role Selection Tabs */}
@@ -225,30 +225,34 @@ export const LoginScreen: React.FC<LoginScreenProps> = ({ onLoginSuccess }) => {
             <button
               type="button"
               onClick={() => handleQuickDemoLogin('student')}
-              className="px-2.5 py-1 text-xs rounded-lg bg-white/90 text-[#1550d3] font-medium border border-blue-100 hover:bg-blue-50 transition-colors shadow-xs"
+              className="px-3 py-1.5 text-xs rounded-xl bg-white/90 text-[#1550d3] font-medium border border-blue-100 hover:bg-blue-50 transition-colors shadow-xs flex items-center gap-1.5 cursor-pointer"
             >
-              👨‍🎓 นักเรียน (วรวุฒิ)
+              <span className="material-symbols-outlined text-[16px]">school</span>
+              <span>นักเรียน (วรวุฒิ)</span>
             </button>
             <button
               type="button"
               onClick={() => handleQuickDemoLogin('teacher')}
-              className="px-2.5 py-1 text-xs rounded-lg bg-white/90 text-[#5f3add] font-medium border border-purple-100 hover:bg-purple-50 transition-colors shadow-xs"
+              className="px-3 py-1.5 text-xs rounded-xl bg-white/90 text-[#5f3add] font-medium border border-purple-100 hover:bg-purple-50 transition-colors shadow-xs flex items-center gap-1.5 cursor-pointer"
             >
-              👨‍🏫 ครู (อ.กิตติพงษ์)
+              <span className="material-symbols-outlined text-[16px]">person</span>
+              <span>ครู (อ.กิตติพงษ์)</span>
             </button>
             <button
               type="button"
               onClick={() => handleQuickDemoLogin('admin')}
-              className="px-2.5 py-1 text-xs rounded-lg bg-white/90 text-[#00694d] font-medium border border-emerald-100 hover:bg-emerald-50 transition-colors shadow-xs"
+              className="px-3 py-1.5 text-xs rounded-xl bg-white/90 text-[#00694d] font-medium border border-emerald-100 hover:bg-emerald-50 transition-colors shadow-xs flex items-center gap-1.5 cursor-pointer"
             >
-              ⚙️ ผู้ดูแลระบบ
+              <span className="material-symbols-outlined text-[16px]">admin_panel_settings</span>
+              <span>ผู้ดูแลระบบ</span>
             </button>
             <button
               type="button"
               onClick={() => handleQuickDemoLogin('parent')}
-              className="px-2.5 py-1 text-xs rounded-lg bg-white/90 text-amber-700 font-medium border border-amber-100 hover:bg-amber-50 transition-colors shadow-xs"
+              className="px-3 py-1.5 text-xs rounded-xl bg-white/90 text-amber-800 font-medium border border-amber-100 hover:bg-amber-50 transition-colors shadow-xs flex items-center gap-1.5 cursor-pointer"
             >
-              👪 ผู้ปกครอง
+              <span className="material-symbols-outlined text-[16px]">family_restroom</span>
+              <span>ผู้ปกครอง</span>
             </button>
           </div>
         </div>

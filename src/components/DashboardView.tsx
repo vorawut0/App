@@ -106,11 +106,11 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#1550d3]/10 text-[#1550d3] w-fit border border-[#1550d3]/15">
             <span className="material-symbols-outlined text-[16px]">wb_twilight</span>
             <span className="text-[12px] font-semibold tracking-wide uppercase">
-              Good Evening 👋
+              Academic Hub
             </span>
           </div>
           <h1 className="text-[26px] sm:text-[32px] font-bold text-[#121b2e] leading-tight">
-            {user.thaiName.split(' ')[0]}, ยินดีต้อนรับกลับสู่ SCHOOL NEXUS.
+            {user.thaiName.split(' ')[0]}, ยินดีต้อนรับกลับสู่ SCHOOL NEXUS
           </h1>
           <p className="text-[#434654] text-[15px]">
             Here is your academic overview for today.
@@ -182,10 +182,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             <div className="grid grid-cols-2 gap-2.5 sm:gap-3">
               <button
                 onClick={() => onOpenScheduleModal()}
-                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98"
+                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[18px] shadow-xs group-hover:scale-105 transition-transform">
-                  📚
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[#1550d3] shadow-xs group-hover:scale-105 transition-transform">
+                  <span className="material-symbols-outlined text-[20px]">menu_book</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-semibold text-[13px] sm:text-[14px] text-[#121b2e] group-hover:text-[#1550d3] transition-colors">
@@ -197,10 +197,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
               <button
                 onClick={() => onNavigateTab('assignments')}
-                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98"
+                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[18px] shadow-xs group-hover:scale-105 transition-transform">
-                  📝
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[#5f3add] shadow-xs group-hover:scale-105 transition-transform">
+                  <span className="material-symbols-outlined text-[20px]">assignment</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-semibold text-[13px] sm:text-[14px] text-[#121b2e] group-hover:text-[#1550d3] transition-colors">
@@ -212,25 +212,25 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
               <button
                 onClick={onOpenGpaModal}
-                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98"
+                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[18px] shadow-xs group-hover:scale-105 transition-transform">
-                  📊
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[#00694d] shadow-xs group-hover:scale-105 transition-transform">
+                  <span className="material-symbols-outlined text-[20px]">insights</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-semibold text-[13px] sm:text-[14px] text-[#121b2e] group-hover:text-[#1550d3] transition-colors">
                     ผลการเรียน
                   </span>
-                  <span className="text-[11px] text-[#00694d] font-medium">GPA 3.92</span>
+                  <span className="text-[11px] text-[#00694d] font-medium">GPA {user.gpa.toFixed(2)}</span>
                 </div>
               </button>
 
               <button
                 onClick={onOpenCalendarModal}
-                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98"
+                className="flex items-center gap-3 p-3 rounded-xl bg-[#f1f3ff] hover:bg-[#e1e8ff] hover:shadow-xs transition-all group border border-slate-100 text-left active:scale-98 cursor-pointer"
               >
-                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[18px] shadow-xs group-hover:scale-105 transition-transform">
-                  📅
+                <div className="w-9 h-9 rounded-lg bg-white flex items-center justify-center text-[#7857f8] shadow-xs group-hover:scale-105 transition-transform">
+                  <span className="material-symbols-outlined text-[20px]">calendar_month</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-semibold text-[13px] sm:text-[14px] text-[#121b2e] group-hover:text-[#1550d3] transition-colors">
@@ -270,7 +270,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
           </div>
         </section>
 
-        {/* Section 2: Student Digital Identity Card */}
+        {/* Section 2: Student / Role Digital Identity Card */}
         <section>
           <div className="flex items-center justify-between mb-3">
             <h3 className="font-bold text-[18px] text-[#121b2e] flex items-center gap-2">
@@ -279,9 +279,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </h3>
             <button
               onClick={onOpenIdCardModal}
-              className="text-[13px] font-semibold text-[#1550d3] hover:underline"
+              className="text-[13px] font-semibold text-[#1550d3] hover:underline cursor-pointer flex items-center gap-1"
             >
-              บัตรประจำตัว 3D ➔
+              <span>บัตรประจำตัว 3D</span>
+              <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
             </button>
           </div>
 
@@ -329,7 +330,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                     e.stopPropagation();
                     onOpenQrScanner();
                   }}
-                  className="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm"
+                  className="w-11 h-11 rounded-2xl bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/20 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm cursor-pointer"
                   title="สแกน QR Code"
                 >
                   <span className="material-symbols-outlined text-white text-[22px]">
@@ -361,37 +362,125 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
                 </div>
               </div>
 
-              {/* Badges & Chip */}
+              {/* Role Credentials / Badges & Chip */}
               <div className="flex items-center justify-between pt-1">
                 <div className="flex flex-col gap-1.5">
                   <span className="text-[11px] font-semibold text-white/60 uppercase tracking-wider">
-                    Achievements (18)
+                    Credentials & Verified Badges
                   </span>
                   <div className="flex gap-2">
-                    <div
-                      className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg border border-white/10 hover:scale-110 transition-transform shadow-xs"
-                      title="Champion 2026"
-                    >
-                      🏆
-                    </div>
-                    <div
-                      className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg border border-white/10 hover:scale-110 transition-transform shadow-xs"
-                      title="Streak Master"
-                    >
-                      🔥
-                    </div>
-                    <div
-                      className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg border border-white/10 hover:scale-110 transition-transform shadow-xs"
-                      title="Code Hacker"
-                    >
-                      💻
-                    </div>
-                    <div
-                      className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center text-lg border border-white/10 hover:scale-110 transition-transform shadow-xs"
-                      title="Media Director"
-                    >
-                      🎬
-                    </div>
+                    {user.role === 'student' && (
+                      <>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Academic Honors"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-amber-300">military_tech</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Daily Learning Streak"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-orange-400">local_fire_department</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Computer & AI Lab Access"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-cyan-300">terminal</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Digital Media Studio"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-indigo-300">movie</span>
+                        </div>
+                      </>
+                    )}
+                    {user.role === 'teacher' && (
+                      <>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Department Head"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-amber-300">workspace_premium</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Verified Faculty Member"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-blue-300">verified</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Lab & Research Supervisor"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-emerald-300">science</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Curriculum Lead"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-purple-300">menu_book</span>
+                        </div>
+                      </>
+                    )}
+                    {user.role === 'admin' && (
+                      <>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="System Security Root"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-emerald-300">shield</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Server & Cloud Data Center"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-cyan-300">dns</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="IoT & Smart Campus Sensors"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-amber-300">sensors</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Master Access Pass"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-purple-300">vpn_key</span>
+                        </div>
+                      </>
+                    )}
+                    {user.role === 'parent' && (
+                      <>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Parent Association Member"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-amber-300">family_restroom</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Verified Guardian"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-emerald-300">verified_user</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Campus Visitor Authorization"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-blue-300">badge</span>
+                        </div>
+                        <div
+                          className="w-9 h-9 rounded-xl bg-white/15 flex items-center justify-center border border-white/15 hover:scale-110 transition-transform shadow-xs"
+                          title="Academic Liaison"
+                        >
+                          <span className="material-symbols-outlined text-[19px] text-purple-300">school</span>
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -409,6 +498,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
             </div>
           </div>
         </section>
+
 
         {/* Section 3: Today's Schedule Timeline */}
         <section>

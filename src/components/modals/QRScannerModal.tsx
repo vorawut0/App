@@ -77,21 +77,24 @@ export const QRScannerModal: React.FC<QRScannerModalProps> = ({ isOpen, onClose 
             <div className="grid grid-cols-3 gap-2 text-xs">
               <button
                 onClick={() => simulateScan('checkin')}
-                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-medium text-center transition-colors cursor-pointer"
+                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-medium text-center transition-colors cursor-pointer flex flex-col items-center gap-1"
               >
-                🏫 เช็กชื่อคาบเรียน
+                <span className="material-symbols-outlined text-[18px] text-cyan-400">school</span>
+                <span>เช็กชื่อคาบเรียน</span>
               </button>
               <button
                 onClick={() => simulateScan('library')}
-                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-medium text-center transition-colors cursor-pointer"
+                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-medium text-center transition-colors cursor-pointer flex flex-col items-center gap-1"
               >
-                📖 ยืมหนังสือ
+                <span className="material-symbols-outlined text-[18px] text-purple-400">menu_book</span>
+                <span>ยืมหนังสือ</span>
               </button>
               <button
                 onClick={() => simulateScan('door')}
-                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-medium text-center transition-colors cursor-pointer"
+                className="p-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/10 text-white font-medium text-center transition-colors cursor-pointer flex flex-col items-center gap-1"
               >
-                🚪 ประตูห้องแล็บ
+                <span className="material-symbols-outlined text-[18px] text-emerald-400">meeting_room</span>
+                <span>ประตูห้องแล็บ</span>
               </button>
             </div>
           </div>
